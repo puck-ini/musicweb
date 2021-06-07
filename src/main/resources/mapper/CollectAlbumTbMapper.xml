@@ -2,8 +2,8 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.musicweb.music.dao.CollectAlbumTbMapper">
-    <resultMap id="BaseResultMap" type="com.musicweb.music.entity.collecttable.CollectAlbumTb">
+<mapper namespace="org.zchzh.music.dao.CollectAlbumTbMapper">
+    <resultMap id="BaseResultMap" type="org.zchzh.music.entity.collecttable.CollectAlbumTb">
         <id column="collect_album_id" property="collectAlbumId" jdbcType="INTEGER" />
         <id column="user_id" property="userId" jdbcType="INTEGER" />
         <id column="album_id" property="albumId" jdbcType="INTEGER" />
@@ -29,7 +29,7 @@
     </select>
 
     <insert id="insertOne" useGeneratedKeys="true" keyProperty="collectAlbumId"
-            keyColumn="collect_album_id" parameterType="com.musicweb.music.entity.collecttable.CollectAlbumTb">
+            keyColumn="collect_album_id" parameterType="org.zchzh.music.entity.collecttable.CollectAlbumTb">
         INSERT INTO
         collect_album_tb(user_id,album_id,create_time)
         VALUES

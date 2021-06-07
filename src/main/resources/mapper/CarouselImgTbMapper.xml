@@ -2,8 +2,8 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.musicweb.music.dao.CarouselImgTbMapper">
-    <resultMap id="BaseResultMap" type="com.musicweb.music.entity.CarouselImgTb">
+<mapper namespace="org.zchzh.music.dao.CarouselImgTbMapper">
+    <resultMap id="BaseResultMap" type="org.zchzh.music.entity.CarouselImgTb">
         <id column="carousel_img_id" property="carouselImgId" jdbcType="INTEGER" />
         <id column="carousel_img" property="carouselImg" jdbcType="VARCHAR" />
         <id column="carousel_url" property="carouselUrl" jdbcType="VARCHAR" />
@@ -18,7 +18,7 @@
     </select>
 
     <insert id="insertOne" useGeneratedKeys="true" keyProperty="carouselImgId"
-            keyColumn="carousel_img_id" parameterType="com.musicweb.music.entity.CarouselImgTb">
+            keyColumn="carousel_img_id" parameterType="org.zchzh.music.entity.CarouselImgTb">
         INSERT INTO
         carousel_img_tb(carousel_img,carousel_url,create_time)
         VALUES (#{carouselImg},#{carouselUrl},#{createTime})
@@ -39,7 +39,7 @@
         </where>
     </select>
 
-    <update id="updateOne" parameterType="com.musicweb.music.entity.CarouselImgTb">
+    <update id="updateOne" parameterType="org.zchzh.music.entity.CarouselImgTb">
         UPDATE carousel_img_tb
         <set>
             carousel_img=#{carouselImg},carousel_url=#{carouselUrl}

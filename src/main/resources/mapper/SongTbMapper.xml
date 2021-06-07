@@ -2,8 +2,8 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.musicweb.music.dao.SongTbMapper">
-    <resultMap id="BaseResultMap" type="com.musicweb.music.entity.SongTb">
+<mapper namespace="org.zchzh.music.dao.SongTbMapper">
+    <resultMap id="BaseResultMap" type="org.zchzh.music.entity.SongTb">
         <id column="song_id" property="songId" jdbcType="INTEGER" />
         <id column="singer_id" property="singerId" jdbcType="INTEGER" />
         <id column="song_name" property="songName" jdbcType="VARCHAR" />
@@ -76,7 +76,7 @@
         FROM song_tb
     </select>
 
-    <update id="updateOne" parameterType="com.musicweb.music.entity.SongTb">
+    <update id="updateOne" parameterType="org.zchzh.music.entity.SongTb">
         UPDATE song_tb
         <set>
             song_name=#{songName},album_id=#{albumId},

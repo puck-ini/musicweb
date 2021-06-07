@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.musicweb.music.dao.CommentAdmireTbMapper">
+<mapper namespace="org.zchzh.music.dao.CommentAdmireTbMapper">
 
-    <resultMap id="BaseResultMap" type="com.musicweb.music.entity.CommentAdmireTb">
+    <resultMap id="BaseResultMap" type="org.zchzh.music.entity.CommentAdmireTb">
         <id column="comment_admire_id" property="commentAdmireId" jdbcType="INTEGER" />
         <id column="user_id" property="userId" jdbcType="INTEGER" />
         <id column="comment_id" property="commentId" jdbcType="INTEGER" />
@@ -13,7 +13,7 @@
     </resultMap>
 
     <insert id="insertOne" useGeneratedKeys="true" keyProperty="commentAdmireId"
-            keyColumn="comment_admire_id" parameterType="com.musicweb.music.entity.CommentAdmireTb">
+            keyColumn="comment_admire_id" parameterType="org.zchzh.music.entity.CommentAdmireTb">
         INSERT INTO
         comment_admire_tb(user_id,comment_id,comment_type,create_time)
         VALUES

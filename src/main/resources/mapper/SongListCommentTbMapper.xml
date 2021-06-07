@@ -2,8 +2,8 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.musicweb.music.dao.SongListCommentTbMapper">
-    <resultMap id="BaseResultMap" type="com.musicweb.music.entity.commenttable.SongListCommentTb">
+<mapper namespace="org.zchzh.music.dao.SongListCommentTbMapper">
+    <resultMap id="BaseResultMap" type="org.zchzh.music.entity.commenttable.SongListCommentTb">
         <id column="song_list_comment_id" property="songListCommentId" jdbcType="INTEGER" />
         <id column="song_list_id" property="songListId" jdbcType="INTEGER" />
         <id column="user_id" property="userId" jdbcType="INTEGER" />
@@ -32,7 +32,7 @@
     </select>
 
     <insert id="insertOne" useGeneratedKeys="true" keyProperty="songListCommentId"
-            keyColumn="song_list_comment_id" parameterType="com.musicweb.music.entity.commenttable.SongListCommentTb">
+            keyColumn="song_list_comment_id" parameterType="org.zchzh.music.entity.commenttable.SongListCommentTb">
         INSERT INTO
         song_comment_tb(song_list_id,user_id,comment,create_time)
         VALUES

@@ -2,8 +2,8 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.musicweb.music.dao.SingerTbMapper">
-    <resultMap id="BaseResultMap" type="com.musicweb.music.entity.SingerTb">
+<mapper namespace="org.zchzh.music.dao.SingerTbMapper">
+    <resultMap id="BaseResultMap" type="org.zchzh.music.entity.SingerTb">
         <id column="singer_id" property="singerId" jdbcType="INTEGER" />
         <id column="user_id" property="userId" jdbcType="INTEGER" />
         <id column="singer_name" property="singerName" jdbcType="VARCHAR" />
@@ -17,7 +17,7 @@
     </resultMap>
 
     <insert id="insertOne" useGeneratedKeys="true" keyProperty="singerId"
-            keyColumn="singer_id" parameterType="com.musicweb.music.entity.SingerTb">
+            keyColumn="singer_id" parameterType="org.zchzh.music.entity.SingerTb">
         INSERT INTO
         singer_tb(user_id,singer_name,singer_img,singer_one_intro,singer_intro,gender,initial)
         VALUES

@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.musicweb.music.dao.UserTbMapper">
+<mapper namespace="org.zchzh.music.dao.UserTbMapper">
 
-    <resultMap id="BaseResultMap" type="com.musicweb.music.entity.UserTb">
+    <resultMap id="BaseResultMap" type="org.zchzh.music.entity.UserTb">
         <id column="user_id" property="userId" jdbcType="INTEGER" />
         <id column="username" property="username" jdbcType="VARCHAR" />
         <id column="password" property="password" jdbcType="VARCHAR" />
@@ -53,14 +53,14 @@
     </select>
 
     <insert id="insertForSignIn" useGeneratedKeys="true" keyProperty="userId"
-             keyColumn="user_id" parameterType="com.musicweb.music.entity.UserTb">
+             keyColumn="user_id" parameterType="org.zchzh.music.entity.UserTb">
         INSERT INTO
         user_tb(username,password,user_nickname,mail,jurisdiction,captcha,gender,head_img)
         VALUES
         (#{username},#{password},#{userNickname},#{mail},#{jurisdiction},#{captcha},#{gender},#{headImg})
     </insert>
 
-    <update id="updateByUserId" parameterType="com.musicweb.music.entity.UserTb">
+    <update id="updateByUserId" parameterType="org.zchzh.music.entity.UserTb">
         UPDATE user_tb
         <set>
             username=#{username},password=#{password},

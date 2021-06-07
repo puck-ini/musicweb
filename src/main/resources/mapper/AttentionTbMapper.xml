@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.musicweb.music.dao.AttentionTbMapper">
+<mapper namespace="org.zchzh.music.dao.AttentionTbMapper">
 
-    <resultMap id="BaseResultMap" type="com.musicweb.music.entity.AttentionTb">
+    <resultMap id="BaseResultMap" type="org.zchzh.music.entity.AttentionTb">
         <id column="attention_id" property="attentionId" jdbcType="INTEGER" />
         <id column="user_id" property="userId" jdbcType="INTEGER" />
         <id column="user_attention_id" property="userAttentionId" jdbcType="INTEGER" />
@@ -24,7 +24,7 @@
     </select>
 
     <insert id="insertOne" useGeneratedKeys="true" keyProperty="attentionId"
-            keyColumn="attention_id" parameterType="com.musicweb.music.entity.AttentionTb">
+            keyColumn="attention_id" parameterType="org.zchzh.music.entity.AttentionTb">
         INSERT INTO
         attention_tb(user_id,user_attention_id,create_time)
         VALUES
@@ -36,7 +36,7 @@
         WHERE attention_id=#{attentionId}
     </delete>
 
-    <update id="updateByAttentionId" parameterType="com.musicweb.music.entity.AttentionTb">
+    <update id="updateByAttentionId" parameterType="org.zchzh.music.entity.AttentionTb">
         UPDATE attention_tb
         <set>
             user_id=#{userId},user_attention_id=#{attentionId},create_time=#{createTime}

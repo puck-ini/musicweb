@@ -2,8 +2,8 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.musicweb.music.dao.SongListTbMapper">
-    <resultMap id="BaseResultMap" type="com.musicweb.music.entity.SongListTb">
+<mapper namespace="org.zchzh.music.dao.SongListTbMapper">
+    <resultMap id="BaseResultMap" type="org.zchzh.music.entity.SongListTb">
         <id column="song_list_id" property="songListId" jdbcType="INTEGER" />
         <id column="song_list_name" property="songListName" jdbcType="VARCHAR" />
         <id column="song_list_intro" property="songListIntro" jdbcType="VARCHAR" />
@@ -82,14 +82,14 @@
     </select>
 
     <insert id="insertOne" useGeneratedKeys="true" keyProperty="songListId"
-            keyColumn="song_list_id" parameterType="com.musicweb.music.entity.SongListTb">
+            keyColumn="song_list_id" parameterType="org.zchzh.music.entity.SongListTb">
         INSERT INTO
         song_list_tb(song_list_name,create_time,user_id,label,song_list_intro,song_list_img)
         VALUES
         (#{songListName},#{createTime},#{userId},#{label},#{songListIntro},#{songListImg})
     </insert>
 
-    <update id="updateOne" parameterType="com.musicweb.music.entity.SongListTb">
+    <update id="updateOne" parameterType="org.zchzh.music.entity.SongListTb">
         UPDATE song_list_tb
         <set>
             song_list_name=#{songListName},song_list_intro=#{songListIntro},

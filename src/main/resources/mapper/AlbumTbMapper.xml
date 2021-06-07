@@ -2,8 +2,8 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.musicweb.music.dao.AlbumTbMapper">
-    <resultMap id="BaseResultMap" type="com.musicweb.music.entity.AlbumTb">
+<mapper namespace="org.zchzh.music.dao.AlbumTbMapper">
+    <resultMap id="BaseResultMap" type="org.zchzh.music.entity.AlbumTb">
         <id column="album_id" property="albumId" jdbcType="INTEGER" />
         <id column="singer_id" property="singerId" jdbcType="INTEGER" />
         <id column="album_name" property="albumName" jdbcType="VARCHAR" />
@@ -16,7 +16,7 @@
         <id column="share_number" property="shareNumber" jdbcType="INTEGER" />
     </resultMap>
     <insert id="insertOne" useGeneratedKeys="true" keyProperty="albumId"
-            keyColumn="album_id" parameterType="com.musicweb.music.entity.AlbumTb">
+            keyColumn="album_id" parameterType="org.zchzh.music.entity.AlbumTb">
         INSERT INTO album_tb(album_name,company_name,album_intro,album_img,singer_id)
         VALUES
         (#{albumName},#{companyName},#{albumIntro},#{albumImg},#{singerId})
@@ -80,7 +80,7 @@
         FROM album_tb
     </select>
 
-    <update id="updateOne" parameterType="com.musicweb.music.entity.AlbumTb">
+    <update id="updateOne" parameterType="org.zchzh.music.entity.AlbumTb">
         UPDATE album_tb
         <set>
             singer_id=#{singerId},album_name=#{albumName},company_name=#{companyName},
