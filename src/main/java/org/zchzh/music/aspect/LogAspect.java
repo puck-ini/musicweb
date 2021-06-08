@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.zchzh.music.annotation.ApiLog;
-import org.zchzh.music.entity.LogEntity;
+import org.zchzh.music.entity.newentity.LogEntity;
 import org.zchzh.music.event.LogEvent;
 
 import javax.servlet.http.HttpServletRequest;
@@ -48,7 +48,11 @@ public class LogAspect {
     @Pointcut("@annotation(org.zchzh.music.annotation.ApiLog)")
     public void apiLog() {}
 
+    @Pointcut("@annotation(org.zchzh.music.controller.*)")
+    public void controllerAspect() {}
 
+
+//    @Around(value = "controllerAspect()")
     @Around(value = "apiLog()")
     public Object recordLog(ProceedingJoinPoint point) throws Throwable {
 

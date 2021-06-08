@@ -1,7 +1,7 @@
 package org.zchzh.music.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.zchzh.music.entity.LogEntity;
+import org.zchzh.music.entity.newentity.LogEntity;
 
 /**
  * @author zengchzh

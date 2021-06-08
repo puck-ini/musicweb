@@ -1,4 +1,4 @@
-package org.zchzh.music.entity;
+package org.zchzh.music.entity.newentity;
 
 import lombok.*;
 import org.zchzh.music.entity.newentity.BaseEntity;
