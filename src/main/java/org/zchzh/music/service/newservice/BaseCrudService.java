@@ -1,4 +1,4 @@
-package org.zchzh.music.service;
+package org.zchzh.music.service.newservice;
 
 
 import org.springframework.data.domain.Page;

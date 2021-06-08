@@ -10,7 +10,6 @@ import org.zchzh.music.enums.UserJurisdictionEnum;
 import org.zchzh.music.exception.CommonException;
 import org.zchzh.music.service.impl.MailServiceImpl;
 import org.zchzh.music.service.impl.UserTbServiceImpl;
-import com.musicweb.music.utils.*;
 import io.swagger.annotations.*;
 import org.hibernate.validator.constraints.Email;
 import org.springframework.beans.BeanUtils;

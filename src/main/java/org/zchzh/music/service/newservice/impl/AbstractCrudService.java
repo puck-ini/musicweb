@@ -1,4 +1,4 @@
-package org.zchzh.music.service.impl;
+package org.zchzh.music.service.newservice.impl;
 
 
 import org.springframework.data.domain.Page;
@@ -6,7 +6,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.util.CollectionUtils;
 import org.zchzh.music.repository.BaseRepo;
-import org.zchzh.music.service.BaseCrudService;
+import org.zchzh.music.service.newservice.BaseCrudService;
 
 import java.util.Collection;
 import java.util.Collections;
