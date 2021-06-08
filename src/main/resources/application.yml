@@ -36,4 +36,14 @@ mapper:
     config:
       path: /mapper/*.xml
 
+minio:
+  # Minio server addr
+  address: http://127.0.0.1:9000
+  # MINIO_ACCESS_KEY
+  access-key: minioadmin
+  # MINIO_SECRET_KEY
+  secret-key: minioadmin
+  # default bucket
+  default-bucket: musicfile
+
 

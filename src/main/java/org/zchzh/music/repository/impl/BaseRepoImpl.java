@@ -1,4 +1,4 @@
-package org.zchzh.music.repository;
+package org.zchzh.music.repository.impl;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -11,6 +11,7 @@ import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 import org.springframework.data.repository.support.PageableExecutionUtils;
 import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
+import org.zchzh.music.repository.BaseRepo;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;

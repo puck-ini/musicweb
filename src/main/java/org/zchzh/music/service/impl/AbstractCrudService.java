@@ -26,32 +26,32 @@ public abstract class AbstractCrudService<ENTITY, ID> implements BaseCrudService
     }
 
     @Override
-    public List<ENTITY> listAll() {
+    public List<ENTITY> list() {
         return repo.findAll();
     }
 
     @Override
-    public List<ENTITY> listAll(Sort sort) {
+    public List<ENTITY> list(Sort sort) {
         return repo.findAll(sort);
     }
 
     @Override
-    public Page<ENTITY> listAll(Pageable pageable) {
+    public Page<ENTITY> list(Pageable pageable) {
         return repo.findAll(pageable);
     }
 
     @Override
-    public List<ENTITY> listAll(Collection<ID> ids) {
+    public List<ENTITY> list(Collection<ID> ids) {
         return repo.findAllById(ids);
     }
 
     @Override
-    public List<ENTITY> listAll(Collection<ID> ids, Sort sort) {
+    public List<ENTITY> list(Collection<ID> ids, Sort sort) {
         return repo.findAllById(ids, sort);
     }
 
     @Override
-    public Page<ENTITY> listAll(Collection<ID> ids, Pageable pageable) {
+    public Page<ENTITY> list(Collection<ID> ids, Pageable pageable) {
         return repo.findAllById(ids, pageable);
     }
 
@@ -89,7 +89,7 @@ public abstract class AbstractCrudService<ENTITY, ID> implements BaseCrudService
 
     @Override
     public List<ENTITY> removeAll(Collection<ID> ids) {
-        List<ENTITY> entities = listAll(ids);
+        List<ENTITY> entities = list(ids);
         repo.deleteInBatch(entities);
         return entities;
     }

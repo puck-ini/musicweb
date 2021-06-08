@@ -20,28 +20,28 @@ public interface BaseCrudService<ENTITY, ID> {
      * 获取所有 entity
      * @return 返回 entity list
      */
-    List<ENTITY> listAll();
+    List<ENTITY> list();
 
     /**
      * 获取所有排序后的 entity
      * @param sort 排序规则
      * @return 返回 entity list
      */
-    List<ENTITY> listAll(Sort sort);
+    List<ENTITY> list(Sort sort);
 
     /**
      * 分页获取所有entity
      * @param pageable 分页规则
      * @return 返回分页后的 entity 数据
      */
-    Page<ENTITY> listAll(Pageable pageable);
+    Page<ENTITY> list(Pageable pageable);
 
     /**
      * 根据 id 集合获取所有 entity
      * @param ids id 集合
      * @return 返回 entity  list
      */
-    List<ENTITY> listAll(Collection<ID> ids);
+    List<ENTITY> list(Collection<ID> ids);
 
     /**
      * 根据 id 集合获取所有排序后的 entity
@@ -49,7 +49,7 @@ public interface BaseCrudService<ENTITY, ID> {
      * @param sort 排序规则
      * @return 返回 entity list
      */
-    List<ENTITY> listAll(Collection<ID> ids, Sort sort);
+    List<ENTITY> list(Collection<ID> ids, Sort sort);
 
     /**
      * 根据 id 集合分页获取所有 entity
@@ -57,7 +57,7 @@ public interface BaseCrudService<ENTITY, ID> {
      * @param pageable 分页规则
      * @return 返回分页后的 entity 数据
      */
-    Page<ENTITY> listAll(Collection<ID> ids, Pageable pageable);
+    Page<ENTITY> list(Collection<ID> ids, Pageable pageable);
 
     /**
      * 通过 id 获取对应的 entity

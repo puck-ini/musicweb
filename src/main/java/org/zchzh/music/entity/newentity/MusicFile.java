@@ -22,10 +22,14 @@ public class MusicFile extends BaseEntity {
 
     private String suffix;
 
+    private String contentType;
+
     private String type;
 
     private String path;
 
     private String url;
+
+    private Integer size;
 
 }
