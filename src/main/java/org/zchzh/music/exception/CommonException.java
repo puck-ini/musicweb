@@ -6,6 +6,11 @@ public class CommonException extends RuntimeException{
 
     private Integer code;
 
+    public CommonException(String msg) {
+        super(msg);
+        this.code = ExceptionEnum.UNKNOWN_ERROR.getCode();
+    }
+
     public CommonException(ExceptionEnum exceptionEnum) {
         super(exceptionEnum.getMsg());
         this.code = exceptionEnum.getCode();

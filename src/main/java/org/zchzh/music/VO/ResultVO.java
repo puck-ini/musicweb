@@ -8,6 +8,10 @@ public class ResultVO<T> {
 
     private T data;
 
+    public ResultVO(T t) {
+        this.data = t;
+    }
+
     public Integer getCode() {
         return code;
     }
