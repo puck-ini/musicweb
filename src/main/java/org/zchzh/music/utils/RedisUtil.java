@@ -14,7 +14,6 @@ import java.util.concurrent.TimeUnit;
 /**
  * @author zengchzh
  * @date 2020/9/18 22:02
- * @description 不应该当作一个util使用
  */
 
 
@@ -125,6 +124,42 @@ public class RedisUtil {
         }catch (Exception e){
             e.printStackTrace();
             return false;
+        }
+    }
+
+
+    /**
+     * 更新一个已有的key 中的 value ，如果key 不存在返回null， key 存在返回旧值
+     * @param key
+     * @param value
+     * @return
+     */
+    public Object getAndSetString(String key, Object value){
+        try {
+            return redisTemplate.opsForValue().getAndSet(key, value);
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    /**
+     * 更新一个已有的key 中的 value ，如果key 不存在返回null， key 存在返回旧值
+     * @param key
+     * @param value
+     * @return
+     */
+    public Object getAndSetString(String key, Object value, long time){
+        try {
+            if (time < 0){
+                return this.getAndSetString(key, value);
+            }
+            Object o = redisTemplate.opsForValue().getAndSet(key, value);
+            this.setKeyExpireTime(key, time);
+            return o;
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
         }
     }
 
@@ -545,8 +580,6 @@ public class RedisUtil {
     }
 
     //geo
-
-
 
     //
 }
