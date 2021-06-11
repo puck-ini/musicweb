@@ -2,9 +2,9 @@ package org.zchzh.music.types;
 
 /**
  * @author zengchzh
- * @date 2021/6/8
+ * @date 2021/6/11
  */
-public enum CommentType {
+public enum ThumbObjectType {
     /**
      * 歌曲
      */
@@ -16,5 +16,9 @@ public enum CommentType {
     /**
      * mv
      */
-    MV;
+    MV,
+    /**
+     * 评论
+     */
+    COMMENT;
 }

@@ -34,5 +34,9 @@ public class Comment extends BaseEntity {
      * 评论的对象id
      */
     private Long targetId;
+    /**
+     * 点赞数
+     */
+    private Long thumbNumber;
 
 }
