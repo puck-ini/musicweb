@@ -1,8 +1,11 @@
 package org.zchzh.music.model.entity;
 
 import lombok.*;
+import org.zchzh.music.types.GenderType;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import java.util.Date;
 
 /**
@@ -33,7 +36,8 @@ public class MusicUser extends BaseEntity {
     /**
      * 性别
      */
-    private String gender;
+    @Enumerated(EnumType.STRING)
+    private GenderType gender;
     /**
      * 邮件地址
      */

@@ -2,6 +2,7 @@ package org.zchzh.music.convert;
 
 import org.zchzh.music.model.dto.UserDTO;
 import org.zchzh.music.model.entity.MusicUser;
+import org.zchzh.music.types.GenderType;
 
 /**
  * @author zengchzh
@@ -14,7 +15,7 @@ public class UserConvert {
                 .id(user.getId())
                 .name(user.getName())
                 .loginName(user.getLoginName())
-                .gender(user.getGender())
+                .gender(user.getGender().name())
                 .mail(user.getMail())
                 .address(user.getAddress())
                 .birthDate(user.getBirthDate())
@@ -27,7 +28,7 @@ public class UserConvert {
         MusicUser musicUser = MusicUser.builder()
                 .name(dto.getName())
                 .loginName(dto.getLoginName())
-                .gender(dto.getGender())
+                .gender(GenderType.valueOf(dto.getGender()))
                 .mail(dto.getMail())
                 .address(dto.getAddress())
                 .phone(dto.getPhone())

@@ -7,6 +7,8 @@ import org.zchzh.music.convert.UserConvert;
 import org.zchzh.music.model.dto.UserDTO;
 import org.zchzh.music.model.entity.MusicUser;
 import org.zchzh.music.exception.CommonException;
+import org.zchzh.music.model.request.LoginReq;
+import org.zchzh.music.model.request.RegisterReq;
 import org.zchzh.music.repository.MusicUserRepo;
 import org.zchzh.music.repository.RedisRepo;
 import org.zchzh.music.service.newservice.UserService;
@@ -42,7 +44,9 @@ public class UserServiceImpl implements UserService {
     private static final int IP_FAIL_COUNT = 10;
 
     @Override
-    public UserDTO login(String loginName, String password) {
+    public UserDTO login(LoginReq req) {
+        String loginName = req.getLoginName();
+        String password = req.getPassword();
         List<MusicUser> musicUserList = userRepo.findAllByLoginName(loginName);
         if (CollectionUtils.isEmpty(musicUserList)) {
             throw new CommonException("用户名或密码错误");
@@ -96,5 +100,16 @@ public class UserServiceImpl implements UserService {
     @Override
     public void logout() {
 
+    }
+
+    @Override
+    public UserDTO register(RegisterReq req) {
+        MusicUser user = MusicUser.builder()
+                .name(req.getName())
+                .loginName(req.getLoginName())
+                .password(req.getPassword())
+                .mail(req.getMail())
+                .build();
+        return UserConvert.toDTO(userRepo.save(user));
     }
 }
