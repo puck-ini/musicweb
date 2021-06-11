@@ -5,7 +5,7 @@ import org.springframework.context.event.EventListener;
 import org.springframework.core.annotation.Order;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
-import org.zchzh.music.entity.newentity.LogEntity;
+import org.zchzh.music.model.entity.LogEntity;
 import org.zchzh.music.event.LogEvent;
 import org.zchzh.music.repository.LogEntityRepo;
 

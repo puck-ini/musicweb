@@ -1,4 +1,4 @@
-package org.zchzh.music.entity.newentity;
+package org.zchzh.music.model.entity;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

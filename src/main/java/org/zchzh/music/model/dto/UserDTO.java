@@ -1,4 +1,4 @@
-package org.zchzh.music.dto;
+package org.zchzh.music.model.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;

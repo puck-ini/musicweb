@@ -1,6 +1,6 @@
 package org.zchzh.music.repository;
 
-import org.zchzh.music.entity.newentity.MusicFile;
+import org.zchzh.music.model.entity.MusicFile;
 
 /**
  * @author zengchzh

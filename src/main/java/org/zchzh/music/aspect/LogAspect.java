@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.zchzh.music.annotation.ApiLog;
-import org.zchzh.music.entity.newentity.LogEntity;
+import org.zchzh.music.model.entity.LogEntity;
 import org.zchzh.music.event.LogEvent;
 
 import javax.servlet.http.HttpServletRequest;

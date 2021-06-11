@@ -1,7 +1,7 @@
 package org.zchzh.music.event;
 
 import org.springframework.context.ApplicationEvent;
-import org.zchzh.music.entity.newentity.LogEntity;
+import org.zchzh.music.model.entity.LogEntity;
 
 /**
  * @author zengchzh

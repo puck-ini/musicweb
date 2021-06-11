@@ -1,8 +1,7 @@
-package org.zchzh.music.entity.newentity;
+package org.zchzh.music.model.entity;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import org.zchzh.music.entity.newentity.BaseEntity;
 
 import javax.persistence.Entity;
 

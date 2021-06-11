@@ -1,7 +1,6 @@
 package org.zchzh.music.service.newservice;
 
-import org.zchzh.music.dto.UserDTO;
-import org.zchzh.music.entity.newentity.MusicUser;
+import org.zchzh.music.model.dto.UserDTO;
 
 /**
  * @author zengchzh
@@ -21,6 +20,9 @@ public interface UserService {
      * 登出当前用户
      */
     void logout();
+
+
+    UserDTO register();
 
 
 }

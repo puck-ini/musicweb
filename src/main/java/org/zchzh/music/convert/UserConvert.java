@@ -1,9 +1,7 @@
 package org.zchzh.music.convert;
 
-import org.zchzh.music.dto.UserDTO;
-import org.zchzh.music.entity.newentity.MusicUser;
-
-import java.text.SimpleDateFormat;
+import org.zchzh.music.model.dto.UserDTO;
+import org.zchzh.music.model.entity.MusicUser;
 
 /**
  * @author zengchzh
