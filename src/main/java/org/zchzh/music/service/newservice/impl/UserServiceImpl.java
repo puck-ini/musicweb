@@ -8,6 +8,7 @@ import org.zchzh.music.exception.CommonException;
 import org.zchzh.music.repository.MusicUserRepo;
 import org.zchzh.music.repository.RedisRepo;
 import org.zchzh.music.service.newservice.UserService;
+import org.zchzh.music.utils.TokenUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -52,6 +53,7 @@ public class UserServiceImpl implements UserService {
         if (Objects.equals(password, musicUser.getPassword())) {
             cacheLimiterInfo(loginName, ip);
         }
+        String token = TokenUtil.createToken(musicUser.getId(), loginName, 60 * 60 * 10000);
         return musicUser;
     }
 

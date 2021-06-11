@@ -1,23 +1,24 @@
-package org.zchzh.music.entity.newentity;
+package org.zchzh.music.dto;
 
-import lombok.*;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * @author zengchzh
- * @date 2021/6/7
+ * @date 2021/6/10
  */
-
-@EqualsAndHashCode(callSuper = true)
 @Data
-@Entity
+//@AllArgsConstructor
+//@NoArgsConstructor
 @Builder
-@NoArgsConstructor
-@AllArgsConstructor
-public class MusicUser extends BaseEntity {
-
+public class UserDTO implements Serializable {
+    private Long id;
     /**
      * 用户名称
      */
@@ -26,10 +27,6 @@ public class MusicUser extends BaseEntity {
      * 登录名
      */
     private String loginName;
-    /**
-     * 登录密码
-     */
-    private String password;
     /**
      * 性别
      */
@@ -49,6 +46,7 @@ public class MusicUser extends BaseEntity {
     /**
      * 出生日期
      */
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date birthDate;
     /**
      * 个人描述
@@ -58,6 +56,4 @@ public class MusicUser extends BaseEntity {
      * 头像地址
      */
     private String avatar;
-
-
 }

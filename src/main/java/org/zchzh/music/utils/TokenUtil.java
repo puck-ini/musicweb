@@ -19,7 +19,7 @@ public class TokenUtil {
         return key;
     }
 
-    public static String createToken(Integer userId,String username,long ttlMillis){
+    public static String createToken(Long userId,String username,long ttlMillis){
         SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;
         SecretKey key = generalKey();
         long nowMillis = System.currentTimeMillis();
