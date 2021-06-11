@@ -1,4 +1,4 @@
-package org.zchzh.music.service.newservice.impl;
+package org.zchzh.music.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,7 +10,7 @@ import org.zchzh.music.model.entity.UserRole;
 import org.zchzh.music.repository.PermissionRepo;
 import org.zchzh.music.repository.RolePermissionRepo;
 import org.zchzh.music.repository.UserRoleRepo;
-import org.zchzh.music.service.newservice.PermissionService;
+import org.zchzh.music.service.PermissionService;
 import org.zchzh.music.types.PermissionType;
 
 import java.util.ArrayList;

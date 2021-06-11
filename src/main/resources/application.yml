@@ -1,10 +1,13 @@
 spring:
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/music?characterEncoding=utf-8&useSSL=false
-    username: root
+    driver-class-name: org.postgresql.Driver
+    username: postgres
     password: root
-    type: com.mchange.v2.c3p0.ComboPooledDataSource
+    url: jdbc:postgresql://127.0.0.1:5432/musicweb?currentSchema=musicweb
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create
   mail:
     host: smtp.qq.com
     username: 123@test.com
@@ -39,22 +42,6 @@ spring:
         min-idle: 0
     # 连接超时时间（毫秒）
     timeout: 0
-mybatis:
-  mapper-locations: classpath:mapper/*.xml
-
-pagehelper:
-  helper-dialect: mysql
-  reasonable: true
-  supportMethodsArguments: true
-  params: count=countSql
-
-mapper:
-  package:
-    path: org.zchzh.music.dao
-  xml:
-    config:
-      path: /mapper/*.xml
-
 minio:
   # Minio server addr
   address: http://127.0.0.1:9000

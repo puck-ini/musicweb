@@ -17,8 +17,6 @@ public class RedisRepoImpl implements RedisRepo {
     @Autowired
     private RedisUtil redisUtil;
 
-
-
     /**
      * 限制登录时间，单位秒
      */

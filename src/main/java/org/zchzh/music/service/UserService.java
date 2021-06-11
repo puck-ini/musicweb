@@ -1,4 +1,4 @@
-package org.zchzh.music.service.newservice;
+package org.zchzh.music.service;
 
 import org.zchzh.music.model.dto.UserDTO;
 import org.zchzh.music.model.request.LoginReq;

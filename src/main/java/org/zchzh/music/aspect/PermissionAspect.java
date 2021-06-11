@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.zchzh.music.exception.CommonException;
-import org.zchzh.music.service.newservice.PermissionService;
+import org.zchzh.music.service.PermissionService;
 
 import javax.servlet.http.HttpServletRequest;
 

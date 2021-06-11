@@ -1,4 +1,4 @@
-package org.zchzh.music.service.newservice.impl;
+package org.zchzh.music.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,7 +11,7 @@ import org.zchzh.music.model.request.LoginReq;
 import org.zchzh.music.model.request.RegisterReq;
 import org.zchzh.music.repository.MusicUserRepo;
 import org.zchzh.music.repository.RedisRepo;
-import org.zchzh.music.service.newservice.UserService;
+import org.zchzh.music.service.UserService;
 import org.zchzh.music.utils.TokenUtil;
 
 import javax.servlet.http.HttpServletRequest;
