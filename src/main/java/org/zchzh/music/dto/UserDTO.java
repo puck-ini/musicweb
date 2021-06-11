@@ -19,6 +19,8 @@ import java.util.Date;
 @Builder
 public class UserDTO implements Serializable {
     private Long id;
+
+    private String token;
     /**
      * 用户名称
      */

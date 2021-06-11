@@ -11,7 +11,7 @@ import java.text.SimpleDateFormat;
  */
 public class UserConvert {
 
-    public UserDTO toDTO(MusicUser user) {
+    public static UserDTO toDTO(MusicUser user) {
         return UserDTO.builder()
                 .id(user.getId())
                 .name(user.getName())
@@ -25,7 +25,7 @@ public class UserConvert {
                 .build();
     }
 
-    public MusicUser toEntity(UserDTO dto) {
+    public static MusicUser toEntity(UserDTO dto) {
         MusicUser musicUser = MusicUser.builder()
                 .name(dto.getName())
                 .loginName(dto.getLoginName())

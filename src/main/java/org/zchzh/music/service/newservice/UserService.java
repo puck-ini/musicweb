@@ -1,5 +1,6 @@
 package org.zchzh.music.service.newservice;
 
+import org.zchzh.music.dto.UserDTO;
 import org.zchzh.music.entity.newentity.MusicUser;
 
 /**
@@ -14,7 +15,7 @@ public interface UserService {
      * @param password 密码
      * @return 返回登录的用户信息
      */
-    MusicUser login(String loginName, String password);
+    UserDTO login(String loginName, String password);
 
     /**
      * 登出当前用户

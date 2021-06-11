@@ -3,6 +3,8 @@ package org.zchzh.music.service.newservice.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
+import org.zchzh.music.convert.UserConvert;
+import org.zchzh.music.dto.UserDTO;
 import org.zchzh.music.entity.newentity.MusicUser;
 import org.zchzh.music.exception.CommonException;
 import org.zchzh.music.repository.MusicUserRepo;
@@ -40,7 +42,7 @@ public class UserServiceImpl implements UserService {
     private static final int IP_FAIL_COUNT = 10;
 
     @Override
-    public MusicUser login(String loginName, String password) {
+    public UserDTO login(String loginName, String password) {
         List<MusicUser> musicUserList = userRepo.findAllByLoginName(loginName);
         if (CollectionUtils.isEmpty(musicUserList)) {
             throw new CommonException("用户名或密码错误");
@@ -53,10 +55,15 @@ public class UserServiceImpl implements UserService {
         if (Objects.equals(password, musicUser.getPassword())) {
             cacheLimiterInfo(loginName, ip);
         }
-        String token = TokenUtil.createToken(musicUser.getId(), loginName, 60 * 60 * 10000);
-        return musicUser;
+        UserDTO dto = UserConvert.toDTO(musicUser);
+        dto.setToken(TokenUtil.createToken(musicUser.getId(), loginName, 60 * 60 * 1000));
+        return dto;
     }
 
+    /**
+     * 限制登录次数
+     * @param loginName 登录名
+     */
     private void checkLoginNameLimiter(String loginName) {
         int count = redisRepo.getUserLoginCount(loginName);
         if (count > LOGIN_NAME_FAIL_COUNT) {
@@ -64,6 +71,11 @@ public class UserServiceImpl implements UserService {
         }
     }
 
+    /**
+     * 限制ip登录次数
+     * @param loginName 登录名
+     * @param ip ip
+     */
     private void checkIpLimiter(String loginName, String ip) {
         int count = redisRepo.getUserIpCount(loginName, ip);
         if (count > IP_FAIL_COUNT) {
@@ -71,6 +83,11 @@ public class UserServiceImpl implements UserService {
         }
     }
 
+    /**
+     * 缓存限制次数
+     * @param loginName 用户名
+     * @param ip ip
+     */
     private void cacheLimiterInfo(String loginName, String ip) {
         redisRepo.cacheUserLoginCount(loginName);
         redisRepo.cacheUserIpCount(loginName, ip);
