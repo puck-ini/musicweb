@@ -1,6 +1,7 @@
-package org.zchzh.music.model.entity;
+package org.zchzh.music.model.entity.user;
 
 import lombok.*;
+import org.zchzh.music.model.entity.BaseEntity;
 import org.zchzh.music.types.GenderType;
 
 import javax.persistence.Entity;

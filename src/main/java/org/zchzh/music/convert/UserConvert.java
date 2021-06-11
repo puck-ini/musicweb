@@ -1,7 +1,7 @@
 package org.zchzh.music.convert;
 
 import org.zchzh.music.model.dto.UserDTO;
-import org.zchzh.music.model.entity.MusicUser;
+import org.zchzh.music.model.entity.user.MusicUser;
 import org.zchzh.music.types.GenderType;
 
 /**

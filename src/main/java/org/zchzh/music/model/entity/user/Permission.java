@@ -1,8 +1,9 @@
-package org.zchzh.music.model.entity;
+package org.zchzh.music.model.entity.user;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.springframework.http.HttpMethod;
+import org.zchzh.music.model.entity.BaseEntity;
 import org.zchzh.music.types.PermissionType;
 
 import javax.persistence.Entity;
@@ -17,7 +18,7 @@ import javax.persistence.Enumerated;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @Entity
-public class Permission extends BaseEntity{
+public class Permission extends BaseEntity {
 
     /**
      * 权限名

@@ -1,6 +1,6 @@
 package org.zchzh.music.service;
 
-import org.zchzh.music.model.entity.Permission;
+import org.zchzh.music.model.entity.user.Permission;
 
 import java.util.List;
 

@@ -1,6 +1,6 @@
 package org.zchzh.music.repository;
 
-import org.zchzh.music.model.entity.Role;
+import org.zchzh.music.model.entity.user.Role;
 
 /**
  * @author zengchzh

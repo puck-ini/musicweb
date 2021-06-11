@@ -1,7 +1,7 @@
-package org.zchzh.music.model.entity;
+package org.zchzh.music.model.entity.user;
 
 import lombok.Data;
-import org.zchzh.music.types.RolePermissionId;
+import org.zchzh.music.types.UserRoleId;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -10,10 +10,10 @@ import javax.persistence.Entity;
  * @author zengchzh
  * @date 2021/6/8
  */
-
 @Data
 @Entity
-public class RolePermission {
+public class UserRole {
+
     @EmbeddedId
-    private RolePermissionId rolePermissionId;
+    private UserRoleId userRoleId;
 }

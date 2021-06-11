@@ -1,6 +1,6 @@
 package org.zchzh.music.repository;
 
-import org.zchzh.music.model.entity.UserRole;
+import org.zchzh.music.model.entity.user.UserRole;
 
 import java.util.List;
 

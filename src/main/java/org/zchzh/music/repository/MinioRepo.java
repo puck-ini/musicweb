@@ -1,8 +1,9 @@
 package org.zchzh.music.repository;
 
 
-import org.zchzh.music.entity.minio.MinioBucket;
-import org.zchzh.music.entity.minio.MinioFile;
+
+import org.zchzh.music.model.entity.minio.MinioBucket;
+import org.zchzh.music.model.entity.minio.MinioFile;
 
 import java.util.List;
 

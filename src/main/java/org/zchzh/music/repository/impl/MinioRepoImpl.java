@@ -5,8 +5,9 @@ import io.minio.*;
 import io.minio.messages.Bucket;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.zchzh.music.entity.minio.MinioBucket;
-import org.zchzh.music.entity.minio.MinioFile;
+
+import org.zchzh.music.model.entity.minio.MinioBucket;
+import org.zchzh.music.model.entity.minio.MinioFile;
 import org.zchzh.music.repository.MinioRepo;
 
 import java.io.InputStream;

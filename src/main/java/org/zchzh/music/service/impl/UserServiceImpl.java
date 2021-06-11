@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 import org.zchzh.music.convert.UserConvert;
 import org.zchzh.music.model.dto.UserDTO;
-import org.zchzh.music.model.entity.MusicUser;
+import org.zchzh.music.model.entity.user.MusicUser;
 import org.zchzh.music.exception.CommonException;
 import org.zchzh.music.model.request.LoginReq;
 import org.zchzh.music.model.request.RegisterReq;
