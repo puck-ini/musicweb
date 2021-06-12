@@ -10,7 +10,7 @@ import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
-import org.zchzh.music.VO.ResultVO;
+import org.zchzh.music.model.dto.ResultDTO;
 import org.zchzh.music.annotation.RemoveWrapper;
 import org.zchzh.music.exception.CommonException;
 
@@ -25,7 +25,7 @@ public class ResponseHandle implements ResponseBodyAdvice<Object> {
 
     @Override
     public boolean supports(MethodParameter methodParameter, Class<? extends HttpMessageConverter<?>> aClass) {
-        return !(methodParameter.getParameterType().equals(ResultVO.class)
+        return !(methodParameter.getParameterType().equals(ResultDTO.class)
                 || methodParameter.hasMethodAnnotation(RemoveWrapper.class));
     }
 
@@ -41,12 +41,12 @@ public class ResponseHandle implements ResponseBodyAdvice<Object> {
             ObjectMapper objectMapper = new ObjectMapper();
             try {
                 // 将数据包装在dto里后，再转换为json字符串返回
-                return objectMapper.writeValueAsString(new ResultVO<>(o));
+                return objectMapper.writeValueAsString(ResultDTO.success(o));
             } catch (JsonProcessingException e) {
                 log.error(e.getMessage());
                 throw new CommonException("结果封装失败");
             }
         }
-        return new ResultVO<>(o);
+        return ResultDTO.success(o);
     }
 }

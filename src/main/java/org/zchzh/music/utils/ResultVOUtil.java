@@ -1,32 +1,32 @@
 package org.zchzh.music.utils;
 
-import org.zchzh.music.VO.ResultVO;
+import org.zchzh.music.model.dto.ResultDTO;
 
 public class ResultVOUtil {
 
-    public static ResultVO success(Object object){
-        ResultVO resultVO = new ResultVO();
-        resultVO.setCode(0);
-        resultVO.setDesc("成功");
-        resultVO.setData(object);
-        return resultVO;
+    public static ResultDTO success(Object object){
+        ResultDTO resultDTO = new ResultDTO();
+//        resultDTO.setCode(0);
+        resultDTO.setMsg("成功");
+        resultDTO.setData(object);
+        return resultDTO;
     }
-    public static ResultVO success(){
+    public static ResultDTO success(){
         return ResultVOUtil.success(null);
     }
 
-    public static ResultVO success(Integer code,String msg,Object object){
-        ResultVO resultVO = new ResultVO();
-        resultVO.setCode(code);
-        resultVO.setDesc(msg);
-        resultVO.setData(object);
-        return resultVO;
+    public static ResultDTO success(Integer code, String msg, Object object){
+        ResultDTO resultDTO = new ResultDTO();
+//        resultDTO.setCode(code);
+        resultDTO.setMsg(msg);
+        resultDTO.setData(object);
+        return resultDTO;
     }
 
-    public static ResultVO error(Integer code,String msg){
-        ResultVO resultVO = new ResultVO();
-        resultVO.setCode(code);
-        resultVO.setDesc(msg);
-        return resultVO;
+    public static ResultDTO error(Integer code, String msg){
+        ResultDTO resultDTO = new ResultDTO();
+//        resultDTO.setCode(code);
+        resultDTO.setMsg(msg);
+        return resultDTO;
     }
 }

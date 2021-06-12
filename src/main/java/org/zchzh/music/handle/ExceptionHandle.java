@@ -2,7 +2,7 @@ package org.zchzh.music.handle;
 
 
 import org.springframework.web.bind.MethodArgumentNotValidException;
-import org.zchzh.music.VO.ResultVO;
+import org.zchzh.music.model.dto.ResultDTO;
 import org.zchzh.music.enums.ExceptionEnum;
 import org.zchzh.music.exception.CommonException;
 import org.zchzh.music.utils.ResultVOUtil;
@@ -21,13 +21,13 @@ public class ExceptionHandle {
 
     @ExceptionHandler(value = CommonException.class)
     @ResponseBody
-    public ResultVO handle(CommonException e){
+    public ResultDTO handle(CommonException e){
         if (e instanceof CommonException){
             CommonException commonException = (CommonException) e;
-            return ResultVOUtil.error(commonException.getCode(), commonException.getMessage());
+            return ResultDTO.error(commonException.getMessage());
         }else{
             logger.error("[系统异常]{}",e);
-            return ResultVOUtil.error(ExceptionEnum.UNKNOWN_ERROR.getCode(),ExceptionEnum.UNKNOWN_ERROR.getMsg());
+            return ResultDTO.error(ExceptionEnum.UNKNOWN_ERROR.getMsg());
         }
     }
 
@@ -37,7 +37,7 @@ public class ExceptionHandle {
      * @return 返回 dto
      */
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResultVO<String> methodArgumentNotValidExceptionHandler(MethodArgumentNotValidException e) {
-        return new ResultVO(Objects.requireNonNull(e.getBindingResult().getFieldError()).getDefaultMessage());
+    public ResultDTO<String> methodArgumentNotValidExceptionHandler(MethodArgumentNotValidException e) {
+        return ResultDTO.error(Objects.requireNonNull(e.getBindingResult().getFieldError()).getDefaultMessage());
     }
 }
