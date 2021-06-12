@@ -74,6 +74,7 @@ public class ThumbServiceImpl extends AbstractCrudService<Thumb, UserTargetId> i
         String key = RedisKey.makeThumbKey(targetId, type);
         Map<Object, Object> map = redisUtil.getHashMap(key);
         List<Object> list = (List<Object>) map.values();
+        long countDown = countDown(targetId, type);
         if (list.size() == 0) {
             Example<Thumb> example = Example.of(
                     Thumb.builder()
@@ -83,9 +84,28 @@ public class ThumbServiceImpl extends AbstractCrudService<Thumb, UserTargetId> i
             );
             List<Thumb> thumbList = thumbRepo.findAll(example);
             thumbList.forEach(this::cacheThumb);
-            return thumbList.stream().filter(item -> item.getThumbType() == ThumbType.UP).count();
+            return thumbList.stream().filter(item -> item.getThumbType() == ThumbType.UP).count() - countDown;
         }
-        return list.stream().filter(item -> item == ThumbType.UP).count();
+        return list.stream().filter(item -> item == ThumbType.UP).count() - countDown;
+    }
+
+    @Override
+    public long countDown(Long targetId, ThumbObjectType type) {
+        String key = RedisKey.makeThumbKey(targetId, type);
+        Map<Object, Object> map = redisUtil.getHashMap(key);
+        List<Object> list = (List<Object>) map.values();
+        if (list.size() == 0) {
+            Example<Thumb> example = Example.of(
+                    Thumb.builder()
+                            .userTargetId(new UserTargetId(null, targetId))
+                            .thumbObjectType(type)
+                            .build()
+            );
+            List<Thumb> thumbList = thumbRepo.findAll(example);
+            thumbList.forEach(this::cacheThumb);
+            return thumbList.stream().filter(item -> item.getThumbType() == ThumbType.DOWN).count();
+        }
+        return list.stream().filter(item -> item == ThumbType.DOWN).count();
     }
 
     /**
