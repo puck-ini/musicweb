@@ -24,6 +24,14 @@ public interface ThumbService extends BaseCrudService<Thumb, UserTargetId> {
      */
     void down(UserTargetId id, ThumbObjectType type);
 
+    /**
+     * 获取点赞总数
+     * @param targetId 操作的对象id
+     * @param type 点赞的对象类型
+     * @return 返回统计的总数
+     */
+    long count(Long targetId, ThumbObjectType type);
+
 
 
 }

@@ -23,4 +23,9 @@ public class RedisKey {
         PREFIX_MAP.put(ThumbObjectType.MV, MV_PREFIX);
         PREFIX_MAP.put(ThumbObjectType.ALBUM, ALBUM_PREFIX);
     }
+
+
+    public static String makeThumbKey(Long targetId, ThumbObjectType type) {
+        return RedisKey.PREFIX_MAP.get(type) + targetId;
+    }
 }
