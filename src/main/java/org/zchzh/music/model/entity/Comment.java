@@ -24,7 +24,7 @@ public class Comment extends BaseEntity {
     /**
      * 评论类型
      */
-    @Enumerated(EnumType.ORDINAL)
+    @Enumerated(EnumType.STRING)
     private CommentType commentType;
     /**
      * 评论的用户id

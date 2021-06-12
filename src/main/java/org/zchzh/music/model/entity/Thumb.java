@@ -27,12 +27,12 @@ public class Thumb {
     @EmbeddedId
     private UserTargetId userTargetId;
 
-    @Enumerated(EnumType.ORDINAL)
+    @Enumerated(EnumType.STRING)
     private ThumbType thumbType;
     /**
      * 点赞类型
      */
-    @Enumerated(EnumType.ORDINAL)
+    @Enumerated(EnumType.STRING)
     private ThumbObjectType thumbObjectType;
 
 }

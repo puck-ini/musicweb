@@ -37,7 +37,7 @@ public class ThumbController {
     }
 
     @GetMapping("/count")
-    public Long down(@Valid ThumbCountReq req) {
+    public Long countUp(@Valid ThumbCountReq req) {
         return thumbService.countUp(req.getTargetId(), req.getType());
     }
 
