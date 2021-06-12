@@ -16,6 +16,7 @@ import javax.persistence.Transient;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class LogEntity extends BaseEntity {
 
     /**

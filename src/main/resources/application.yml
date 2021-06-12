@@ -53,4 +53,8 @@ minio:
   default-bucket: musicfile
 server:
   port: 3987
+log:
+  enable: true
+permission:
+  enable: false
 

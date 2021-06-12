@@ -36,7 +36,7 @@ import java.util.Objects;
 @Aspect
 @Component
 @Slf4j
-@ConditionalOnProperty(prefix = "demo.enable", name = "log", havingValue = "true")
+@ConditionalOnProperty(prefix = "log", name = "enable", havingValue = "true")
 public class LogAspect {
 
 
@@ -48,12 +48,12 @@ public class LogAspect {
     @Pointcut("@annotation(org.zchzh.music.annotation.ApiLog)")
     public void apiLog() {}
 
-    @Pointcut("@annotation(org.zchzh.music.controller.*)")
+    @Pointcut("execution(public * org.zchzh.music.controller.*.*(..))")
     public void controllerAspect() {}
 
 
-//    @Around(value = "controllerAspect()")
-    @Around(value = "apiLog()")
+    @Around(value = "controllerAspect()")
+//    @Around(value = "apiLog()")
     public Object recordLog(ProceedingJoinPoint point) throws Throwable {
 
         // 开始打印请求日志
@@ -112,7 +112,9 @@ public class LogAspect {
             if (method.getName().equals(methodName)) {
                 Class[] clazzs = method.getParameterTypes();
                 if (clazzs.length == args.length) {
-                    description = method.getAnnotation(ApiLog.class).desc();
+                    if (Objects.nonNull(method.getAnnotation(ApiLog.class))) {
+                        description = method.getAnnotation(ApiLog.class).desc();
+                    }
                     break;
                 }
             }
