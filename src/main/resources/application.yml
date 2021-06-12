@@ -51,5 +51,6 @@ minio:
   secret-key: minioadmin
   # default bucket
   default-bucket: musicfile
-
+server:
+  port: 3987
 
