@@ -1,10 +1,14 @@
 package org.zchzh.music.model.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.DynamicUpdate;
 import org.zchzh.music.types.CommentType;
 import org.zchzh.music.types.ThumbObjectType;
 import org.zchzh.music.types.ThumbType;
+import org.zchzh.music.types.UserTargetId;
 
 import javax.persistence.*;
 
@@ -15,20 +19,13 @@ import javax.persistence.*;
 @DynamicUpdate
 @Data
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Thumb {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    /**
-     * 点赞的用户id
-     */
-    private Long userId;
-    /**
-     * 点赞的对象id
-     */
-    private Long targetId;
+    @EmbeddedId
+    private UserTargetId userTargetId;
 
     @Enumerated(EnumType.ORDINAL)
     private ThumbType thumbType;
