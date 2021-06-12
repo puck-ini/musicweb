@@ -30,7 +30,7 @@ public interface ThumbService extends BaseCrudService<Thumb, UserTargetId> {
      * @param type 点赞的对象类型
      * @return 返回统计的总数
      */
-    long count(Long targetId, ThumbObjectType type);
+    long countUp(Long targetId, ThumbObjectType type);
 
 
 

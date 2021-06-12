@@ -51,7 +51,7 @@ public class ThumbServiceImpl extends AbstractCrudService<Thumb, UserTargetId> i
     }
 
     @Override
-    public long count(Long targetId, ThumbObjectType type) {
+    public long countUp(Long targetId, ThumbObjectType type) {
         String key = RedisKey.makeThumbKey(targetId, type);
         Map<Object, Object> map = redisUtil.getHashMap(key);
         List<Object> list = (List<Object>) map.values();
