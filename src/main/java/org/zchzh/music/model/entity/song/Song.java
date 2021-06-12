@@ -5,6 +5,8 @@ import org.zchzh.music.model.entity.BaseEntity;
 import org.zchzh.music.types.LanguageType;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 
 /**
  * @author zengchzh
@@ -33,6 +35,7 @@ public class Song extends BaseEntity {
     /**
      * 语言类型
      */
+    @Enumerated(EnumType.STRING)
     private LanguageType languageType;
     /**
      * 歌词
