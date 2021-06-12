@@ -44,9 +44,7 @@ public class UserServiceImpl implements UserService {
     private static final int IP_FAIL_COUNT = 10;
 
     @Override
-    public UserDTO login(LoginReq req) {
-        String loginName = req.getLoginName();
-        String password = req.getPassword();
+    public UserDTO login(String loginName, String password) {
         List<MusicUser> musicUserList = userRepo.findAllByLoginName(loginName);
         if (CollectionUtils.isEmpty(musicUserList)) {
             throw new CommonException("用户名或密码错误");
