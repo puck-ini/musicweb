@@ -25,7 +25,7 @@ public class UserController {
     private UserService userService;
 
 
-    @GetMapping("/login")
+    @PostMapping("/login")
     public UserDTO login(@Valid LoginReq req) {
         return userService.login(req.getLoginName(), req.getPassword());
     }

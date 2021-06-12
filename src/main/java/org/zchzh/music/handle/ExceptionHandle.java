@@ -32,7 +32,7 @@ public class ExceptionHandle {
     }
 
     /**
-     * 获取 Validator 校验异常 转换成自定义异常
+     * 获取 Validator 校验异常 转换成自定义异常 TODO valid 不生效
      * @param e MethodArgumentNotValidException 异常
      * @return 返回 dto
      */
