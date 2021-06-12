@@ -14,6 +14,7 @@ import org.zchzh.music.utils.RedisUtil;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 /**
  * @author zengchzh
@@ -34,20 +35,38 @@ public class ThumbServiceImpl extends AbstractCrudService<Thumb, UserTargetId> i
 
     @Override
     public void up(UserTargetId id, ThumbObjectType type) {
-        Thumb thumb = get(id).orElse(
-                Thumb.builder().userTargetId(id).thumbObjectType(type).thumbType(ThumbType.UP).build()
-        );
+        Thumb thumb = getThumb(id, type);
+        if (thumb == null) {
+            thumb = Thumb.builder().userTargetId(id).thumbObjectType(type).thumbType(ThumbType.UP).build();
+        } else if (thumb.getThumbType() == ThumbType.UP) {
+            thumb.setThumbType(ThumbType.DELETED);
+        }
         thumbRepo.save(thumb);
         cacheThumb(thumb);
     }
 
     @Override
     public void down(UserTargetId id, ThumbObjectType type) {
-        Thumb thumb = get(id).orElse(
-                Thumb.builder().userTargetId(id).thumbObjectType(type).thumbType(ThumbType.DOWN).build()
-        );
+        Thumb thumb = getThumb(id, type);
+        if (thumb == null) {
+            thumb = Thumb.builder().userTargetId(id).thumbObjectType(type).thumbType(ThumbType.DOWN).build();
+        } else if (thumb.getThumbType() == ThumbType.DOWN) {
+            thumb.setThumbType(ThumbType.DELETED);
+        }
         thumbRepo.save(thumb);
         cacheThumb(thumb);
+    }
+
+    private Thumb getThumb(UserTargetId id, ThumbObjectType type) {
+        return Optional.ofNullable(getCache(id, type)).orElse(get(id).orElse(null));
+    }
+
+    private Thumb getCache(UserTargetId id, ThumbObjectType type) {
+        Object o = redisUtil.getHashValue(RedisKey.makeThumbKey(id.getTargetId(), type), String.valueOf(id.getUserId()));
+        if (o == null) {
+            return null;
+        }
+        return Thumb.builder().userTargetId(id).thumbObjectType(type).thumbType((ThumbType) o).build();
     }
 
     @Override
@@ -67,6 +86,14 @@ public class ThumbServiceImpl extends AbstractCrudService<Thumb, UserTargetId> i
             return thumbList.stream().filter(item -> item.getThumbType() == ThumbType.UP).count();
         }
         return list.stream().filter(item -> item == ThumbType.UP).count();
+    }
+
+    /**
+     * TODO 定时任务保存缓存中的thumb信息到数据库中
+     */
+    public void flushCache() {
+
+
     }
 
     private void cacheThumb(Thumb thumb) {
