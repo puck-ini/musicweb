@@ -1,6 +1,7 @@
 package org.zchzh.music.service.impl;
 
 
+import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -38,6 +39,16 @@ public abstract class AbstractCrudService<ENTITY, ID> implements BaseCrudService
     @Override
     public Page<ENTITY> list(Pageable pageable) {
         return repo.findAll(pageable);
+    }
+
+    @Override
+    public List<ENTITY> list(Example<ENTITY> example) {
+        return repo.findAll(example);
+    }
+
+    @Override
+    public List<ENTITY> list(Example<ENTITY> example, Sort sort) {
+        return repo.findAll(example, sort);
     }
 
     @Override

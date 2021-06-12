@@ -1,6 +1,7 @@
 package org.zchzh.music.service;
 
 
+import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -35,6 +36,21 @@ public interface BaseCrudService<ENTITY, ID> {
      * @return 返回分页后的 entity 数据
      */
     Page<ENTITY> list(Pageable pageable);
+
+    /**
+     * 条件查询
+     * @param example 条件
+     * @return 返回 entity list
+     */
+    List<ENTITY> list(Example<ENTITY> example);
+
+    /**
+     * 条件排序查询
+     * @param example 条件
+     * @param sort 排序规则
+     * @return 返回 entity list
+     */
+    List<ENTITY> list(Example<ENTITY> example, Sort sort);
 
     /**
      * 根据 id 集合获取所有 entity
