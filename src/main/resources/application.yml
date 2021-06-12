@@ -1,3 +1,5 @@
+server:
+  port: 3987
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
@@ -51,8 +53,6 @@ minio:
   secret-key: minioadmin
   # default bucket
   default-bucket: musicfile
-server:
-  port: 3987
 log:
   enable: true
 permission:
