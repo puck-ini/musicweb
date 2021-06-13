@@ -145,7 +145,13 @@ public class LogAspect {
         for (int i = 0; i < names.length; i++) {
             map.put(names[i], args[i]);
         }
-        return JSON.toJSONString(map);
+        String jsonResult = "unknown args";
+        try {
+            jsonResult = JSON.toJSONString(map);
+        } catch (Exception e) {
+            log.error("部分参数无法序列化为json", e);
+        }
+        return jsonResult;
     }
 
 
