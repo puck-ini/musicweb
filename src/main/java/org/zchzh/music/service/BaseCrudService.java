@@ -53,6 +53,14 @@ public interface BaseCrudService<ENTITY, ID> {
     List<ENTITY> list(Example<ENTITY> example, Sort sort);
 
     /**
+     * 分页条件查询
+     * @param example 条件
+     * @param pageable 分页规则
+     * @return 返回 entity list
+     */
+    Page<ENTITY> list(Example<ENTITY> example, Pageable pageable);
+
+    /**
      * 根据 id 集合获取所有 entity
      * @param ids id 集合
      * @return 返回 entity  list

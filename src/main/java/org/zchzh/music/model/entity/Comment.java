@@ -1,7 +1,6 @@
 package org.zchzh.music.model.entity;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 import org.zchzh.music.types.CommentType;
 
 import javax.persistence.Entity;
@@ -15,6 +14,9 @@ import javax.persistence.Enumerated;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Comment extends BaseEntity {
 
     /**

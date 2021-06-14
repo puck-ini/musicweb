@@ -52,6 +52,11 @@ public abstract class AbstractCrudService<ENTITY, ID> implements BaseCrudService
     }
 
     @Override
+    public Page<ENTITY> list(Example<ENTITY> example, Pageable pageable) {
+        return repo.findAll(example, pageable);
+    }
+
+    @Override
     public List<ENTITY> list(Collection<ID> ids) {
         return repo.findAllById(ids);
     }
