@@ -9,6 +9,7 @@ import org.zchzh.music.model.request.ThumbCountReq;
 import org.zchzh.music.model.request.ThumbDownReq;
 import org.zchzh.music.model.request.ThumbUpReq;
 import org.zchzh.music.service.ThumbService;
+import org.zchzh.music.types.ThumbObjectType;
 import org.zchzh.music.types.UserTargetId;
 
 import javax.validation.Valid;
@@ -31,9 +32,49 @@ public class ThumbController {
         thumbService.up(new UserTargetId(getUserId(), req.getTargetId()), req.getType());
     }
 
+    @PutMapping("/up/song")
+    public void upSong(Long id) {
+        thumbService.up(new UserTargetId(getUserId(), id), ThumbObjectType.SONG);
+    }
+
+    @PutMapping("/up/mv")
+    public void upMv(Long id) {
+        thumbService.up(new UserTargetId(getUserId(), id), ThumbObjectType.MV);
+    }
+
+    @PutMapping("/up/album")
+    public void upAlbum(Long id) {
+        thumbService.up(new UserTargetId(getUserId(), id), ThumbObjectType.ALBUM);
+    }
+
+    @PutMapping("/up/comment")
+    public void upComment(Long id) {
+        thumbService.up(new UserTargetId(getUserId(), id), ThumbObjectType.COMMENT);
+    }
+
     @PutMapping("/down")
     public void down(@Valid ThumbDownReq req) {
         thumbService.down(new UserTargetId(getUserId(), req.getTargetId()), req.getType());
+    }
+
+    @PutMapping("/down/song")
+    public void downSong(Long id) {
+        thumbService.down(new UserTargetId(getUserId(), id), ThumbObjectType.SONG);
+    }
+
+    @PutMapping("/down/mv")
+    public void downMv(Long id) {
+        thumbService.down(new UserTargetId(getUserId(), id), ThumbObjectType.MV);
+    }
+
+    @PutMapping("/down/album")
+    public void downAlbum(Long id) {
+        thumbService.down(new UserTargetId(getUserId(), id), ThumbObjectType.ALBUM);
+    }
+
+    @PutMapping("/down/comment")
+    public void downComment(Long id) {
+        thumbService.down(new UserTargetId(getUserId(), id), ThumbObjectType.COMMENT);
     }
 
     @GetMapping("/count")

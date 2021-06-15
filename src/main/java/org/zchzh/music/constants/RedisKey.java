@@ -15,6 +15,7 @@ public class RedisKey {
     public static final String SONG_PREFIX = "song#";
     public static final String MV_PREFIX = "mv#";
     public static final String ALBUM_PREFIX = "album#";
+    public static final String COMMENT_PREFIX = "comment#";
 
     public static final Map<ThumbObjectType, String> PREFIX_MAP = new HashMap<>();
 
@@ -22,6 +23,7 @@ public class RedisKey {
         PREFIX_MAP.put(ThumbObjectType.SONG, SONG_PREFIX);
         PREFIX_MAP.put(ThumbObjectType.MV, MV_PREFIX);
         PREFIX_MAP.put(ThumbObjectType.ALBUM, ALBUM_PREFIX);
+        PREFIX_MAP.put(ThumbObjectType.COMMENT, COMMENT_PREFIX);
     }
 
 

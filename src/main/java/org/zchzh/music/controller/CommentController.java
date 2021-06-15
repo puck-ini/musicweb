@@ -34,7 +34,7 @@ public class CommentController {
         ));
     }
 
-    @GetMapping("/list/song")
+    @GetMapping("/song")
     public PageDTO<Comment> listSong(Long id, Integer pageNum, Integer pageSize) {
         return new PageDTO<>(commentService.list(
                 Example.of(Comment.builder().targetId(id).commentType(CommentType.SONG).build()),
@@ -42,7 +42,7 @@ public class CommentController {
         ));
     }
 
-    @GetMapping("/list/mv")
+    @GetMapping("/mv")
     public PageDTO<Comment> listMv(Long id, Integer pageNum, Integer pageSize) {
         return new PageDTO<>(commentService.list(
                 Example.of(Comment.builder().targetId(id).commentType(CommentType.MV).build()),
@@ -50,7 +50,7 @@ public class CommentController {
         ));
     }
 
-    @GetMapping("/list/album")
+    @GetMapping("/album")
     public PageDTO<Comment> listAlbum(Long id, Integer pageNum, Integer pageSize) {
         return new PageDTO<>(commentService.list(
                 Example.of(Comment.builder().targetId(id).commentType(CommentType.ALBUM).build()),

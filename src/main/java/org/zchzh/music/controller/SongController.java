@@ -26,10 +26,7 @@ public class SongController {
     @GetMapping("/list")
     public PageDTO<Song> list(@RequestParam("pageNum") Integer pageNum,
                               @RequestParam(value = "pageSize", required = false, defaultValue = "20") Integer pageSize) {
-        PageDTO<Song> pageDTO = new PageDTO<>(songService.list(PageRequest.of(pageNum, pageSize)));
-        pageDTO.setCurrentPage(pageNum + 1);
-        pageDTO.setCurrentSize(pageSize);
-        return pageDTO;
+        return new PageDTO<>(songService.list(PageRequest.of(pageNum, pageSize)));
     }
 
 }
