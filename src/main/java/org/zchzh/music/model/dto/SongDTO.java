@@ -1,25 +1,26 @@
-package org.zchzh.music.model.entity.song;
+package org.zchzh.music.model.dto;
 
-import lombok.*;
-import org.zchzh.music.model.entity.BaseEntity;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.zchzh.music.types.LanguageType;
 
-import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import java.io.Serializable;
 
 /**
  * @author zengchzh
- * @date 2021/6/11
+ * @date 2021/6/15
  */
-@EqualsAndHashCode(callSuper = true)
 @Data
-@Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Song extends BaseEntity {
+public class SongDTO implements Serializable {
 
+    private Long id;
     /**
      * 歌曲名
      */
@@ -29,13 +30,16 @@ public class Song extends BaseEntity {
      */
     private Long albumId;
     /**
+     * 专辑名
+     */
+    private String albumName;
+    /**
      * mv id
      */
     private Long mvId;
     /**
      * 语言类型
      */
-    @Enumerated(EnumType.STRING)
     private LanguageType languageType;
     /**
      * 歌词
@@ -49,5 +53,12 @@ public class Song extends BaseEntity {
      * 统计数据外键id
      */
     private Long dataId;
-
+    /**
+     * 点赞数
+     */
+    private Long thumbNumber;
+    /**
+     * 播放数
+     */
+    private Long playNumber;
 }

@@ -7,7 +7,7 @@ import org.zchzh.music.model.entity.MusicFile;
  * @author zengchzh
  * @date 2021/6/12
  */
-public interface FileService {
+public interface FileService extends BaseCrudService<MusicFile, Long>{
     /**
      * 上传文件
      * @param file 文件数据
