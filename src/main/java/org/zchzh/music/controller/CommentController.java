@@ -11,6 +11,7 @@ import org.zchzh.music.model.dto.PageDTO;
 import org.zchzh.music.model.entity.Comment;
 import org.zchzh.music.model.request.CommentListReq;
 import org.zchzh.music.service.CommentService;
+import org.zchzh.music.types.CommentType;
 
 /**
  * @author zengchzh
@@ -30,6 +31,30 @@ public class CommentController {
         return new PageDTO<>(commentService.list(
                 Example.of(Comment.builder().targetId(req.getTargetId()).commentType(req.getType()).build()),
                 PageRequest.of(req.getPageNum(), req.getPageSize())
+        ));
+    }
+
+    @GetMapping("/list/song")
+    public PageDTO<Comment> listSong(Long id, Integer pageNum, Integer pageSize) {
+        return new PageDTO<>(commentService.list(
+                Example.of(Comment.builder().targetId(id).commentType(CommentType.SONG).build()),
+                PageRequest.of(pageNum, pageSize)
+        ));
+    }
+
+    @GetMapping("/list/mv")
+    public PageDTO<Comment> listMv(Long id, Integer pageNum, Integer pageSize) {
+        return new PageDTO<>(commentService.list(
+                Example.of(Comment.builder().targetId(id).commentType(CommentType.MV).build()),
+                PageRequest.of(pageNum, pageSize)
+        ));
+    }
+
+    @GetMapping("/list/album")
+    public PageDTO<Comment> listAlbum(Long id, Integer pageNum, Integer pageSize) {
+        return new PageDTO<>(commentService.list(
+                Example.of(Comment.builder().targetId(id).commentType(CommentType.ALBUM).build()),
+                PageRequest.of(pageNum, pageSize)
         ));
     }
 

@@ -22,6 +22,8 @@ public class PageDTO<T> implements Serializable {
     public PageDTO(){}
 
     public PageDTO(Page<T> page) {
+        this.currentPage = page.getNumber();
+        this.currentSize = page.getNumberOfElements();
         this.total = page.getTotalElements();
         this.totalPages = page.getTotalPages();
         this.content = page.getContent();
