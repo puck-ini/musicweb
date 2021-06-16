@@ -1,6 +1,9 @@
 package org.zchzh.music.model.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.domain.Page;
 
 import java.io.Serializable;
@@ -11,6 +14,9 @@ import java.util.List;
  * @date 2021/6/12
  */
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class PageDTO<T> implements Serializable {
 
     private Integer currentPage;
@@ -18,8 +24,6 @@ public class PageDTO<T> implements Serializable {
     private Long total;
     private Integer totalPages;
     private List<T> content;
-
-    public PageDTO(){}
 
     public PageDTO(Page<T> page) {
         this.currentPage = page.getNumber();

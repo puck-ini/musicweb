@@ -11,7 +11,7 @@ import org.zchzh.music.model.entity.song.SongData;
  */
 public class SongConvert {
 
-    public static SongDTO songDTO(Song song, SongData songData, Album album) {
+    public static SongDTO toDTO(Song song, SongData songData, Album album) {
         return SongDTO.builder()
                 .id(song.getId())
                 .name(song.getName())
