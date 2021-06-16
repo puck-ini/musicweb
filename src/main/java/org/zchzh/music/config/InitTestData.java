@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import org.zchzh.music.model.entity.minio.MinioBucket;
 import org.zchzh.music.model.entity.song.Song;
 import org.zchzh.music.repository.MinioRepo;
+import org.zchzh.music.service.SongDataService;
 import org.zchzh.music.service.SongService;
 
 import java.util.Date;
@@ -56,8 +57,7 @@ public class InitTestData implements InitializingBean {
                             .mvId(i)
                             .lyric("lyric-" + i)
                             .link("link-" + i)
-                            .playNumber(0L)
-                            .thumbNumber(0L).build()
+                            .build()
             );
         });
     }
