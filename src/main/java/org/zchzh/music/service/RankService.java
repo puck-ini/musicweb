@@ -4,8 +4,6 @@ package org.zchzh.music.service;
 import org.zchzh.music.model.entity.Rank;
 import org.zchzh.music.types.RankSort;
 
-import java.util.Map;
-
 /**
  * @author zengchzh
  * @date 2021/6/15
@@ -16,8 +14,16 @@ public interface RankService {
     /**
      * 创建排行榜
      * @param rank 排行榜
+     * @return 返回创建的排行榜
      */
-    void create(Rank rank);
+    Rank create(Rank rank);
+
+    /**
+     * 更新排行榜
+     * @param rank 更新的信息
+     * @return 返回更新的排行榜
+     */
+    Rank update(Rank rank);
 
     /**
      * 获取排行榜

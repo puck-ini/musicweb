@@ -29,10 +29,19 @@ public class RankServiceImpl implements RankService {
 
 
     @Override
-    public void create(Rank rank) {
+    public Rank create(Rank rank) {
         String key = rank.getId();
         redisTemplate.opsForZSet().add(key, toRedisSet(rank.getMap()));
         RANK_CACHE.putIfAbsent(key, rank.getDesc());
+        return get(key);
+    }
+
+    @Override
+    public Rank update(Rank rank) {
+        String key = rank.getId();
+        redisTemplate.opsForZSet().add(key, toRedisSet(rank.getMap()));
+        RANK_CACHE.put(key, rank.getDesc());
+        return get(key);
     }
 
     @Override
