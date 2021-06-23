@@ -34,7 +34,7 @@ public class FileConvert {
 
     public static MusicFile toMusicFile(MultipartFile file) {
         return MusicFile.builder()
-                .fileName(getSimpleName(file))
+                .fileName(getRandomName())
                 .originName(file.getOriginalFilename())
                 .suffix(getSuffix(file))
                 .contentType(file.getContentType())

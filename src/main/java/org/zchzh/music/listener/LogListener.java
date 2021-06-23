@@ -1,5 +1,6 @@
 package org.zchzh.music.listener;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.EventListener;
 import org.springframework.core.annotation.Order;
@@ -14,6 +15,7 @@ import org.zchzh.music.repository.LogEntityRepo;
  * @date 2021/6/8
  */
 
+@Slf4j
 @Component
 public class LogListener {
 
@@ -25,6 +27,7 @@ public class LogListener {
     @EventListener(LogEvent.class)
     public void saveDemoLog(LogEvent event) {
         LogEntity logEntity = (LogEntity) event.getSource();
+        log.info(logEntity.toString());
         repo.save(logEntity);
     }
 }
