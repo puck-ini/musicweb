@@ -17,6 +17,7 @@ import org.zchzh.music.service.SongService;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author zengchzh
@@ -43,14 +44,7 @@ public class SongServiceImpl extends AbstractCrudService<Song, Long> implements 
     @Override
     public PageDTO<SongDTO> list(Integer pageNum, Integer pageSize) {
         Page<Song> songPage = list(PageRequest.of(pageNum, pageSize));
-        List<SongDTO> songDTOList = new ArrayList<>();
-        for (Song song : songPage.getContent()) {
-            Album album = albumRepo.findById(song.getAlbum().getId())
-                    .orElseThrow(() -> new CommonException("album不存在"));
-            SongData songData = songDataRepo.findById(song.getSongData().getId())
-                    .orElseThrow(() -> new CommonException("歌曲统计数据不存在"));
-            songDTOList.add(SongConvert.toDTO(song, songData, album));
-        }
+        List<SongDTO> songDTOList = songPage.getContent().stream().map(SongConvert::toDTO).collect(Collectors.toList());
         return PageDTO.<SongDTO>builder()
                 .currentPage(pageNum)
                 .currentSize(pageSize)

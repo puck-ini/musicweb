@@ -2,6 +2,7 @@ package org.zchzh.music.convert;
 
 import org.zchzh.music.model.dto.SongDTO;
 import org.zchzh.music.model.entity.song.Album;
+import org.zchzh.music.model.entity.song.Mv;
 import org.zchzh.music.model.entity.song.Song;
 import org.zchzh.music.model.entity.song.SongData;
 
@@ -11,19 +12,19 @@ import org.zchzh.music.model.entity.song.SongData;
  */
 public class SongConvert {
 
-    public static SongDTO toDTO(Song song, SongData songData, Album album) {
+    public static SongDTO toDTO(Song song) {
         return SongDTO.builder()
                 .id(song.getId())
                 .name(song.getName())
-                .albumId(album.getId())
-                .albumName(album.getName())
+                .albumId(song.getAlbum().getId())
+                .albumName(song.getAlbum().getName())
                 .mvId(song.getMv().getId())
                 .languageType(song.getLanguageType())
                 .lyric(song.getLyric())
                 .link(song.getLink())
                 .dataId(song.getSongData().getId())
-                .thumbNumber(songData.getThumbNumber())
-                .playNumber(songData.getPlayNumber())
+                .thumbNumber(song.getSongData().getThumbNumber())
+                .playNumber(song.getSongData().getPlayNumber())
                 .build();
     }
 

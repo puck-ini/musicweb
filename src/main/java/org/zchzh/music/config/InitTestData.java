@@ -90,7 +90,7 @@ public class InitTestData implements InitializingBean {
     }
 
     private void printData() {
-        albumService.list().forEach(i -> log.info(i.toString()));
-        songService.list().forEach(i -> log.info(i.toString()));
+//        albumService.list().forEach(i -> log.info(i.toString()));
+//        songService.list().forEach(i -> log.info(i.toString()));
     }
 }
