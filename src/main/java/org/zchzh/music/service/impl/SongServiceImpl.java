@@ -45,9 +45,9 @@ public class SongServiceImpl extends AbstractCrudService<Song, Long> implements 
         Page<Song> songPage = list(PageRequest.of(pageNum, pageSize));
         List<SongDTO> songDTOList = new ArrayList<>();
         for (Song song : songPage.getContent()) {
-            Album album = albumRepo.findById(song.getAlbumId())
+            Album album = albumRepo.findById(song.getAlbum().getId())
                     .orElseThrow(() -> new CommonException("album不存在"));
-            SongData songData = songDataRepo.findById(song.getDataId())
+            SongData songData = songDataRepo.findById(song.getSongData().getId())
                     .orElseThrow(() -> new CommonException("歌曲统计数据不存在"));
             songDTOList.add(SongConvert.toDTO(song, songData, album));
         }

@@ -17,25 +17,24 @@ public class SongConvert {
                 .name(song.getName())
                 .albumId(album.getId())
                 .albumName(album.getName())
-                .mvId(song.getMvId())
+                .mvId(song.getMv().getId())
                 .languageType(song.getLanguageType())
                 .lyric(song.getLyric())
                 .link(song.getLink())
-                .dataId(song.getDataId())
+                .dataId(song.getSongData().getId())
                 .thumbNumber(songData.getThumbNumber())
                 .playNumber(songData.getPlayNumber())
                 .build();
     }
 
     public static Song toSong(SongDTO dto) {
+        SongData songData = toSongData(dto);
         Song song =  Song.builder()
                 .name(dto.getName())
-                .albumId(dto.getAlbumId())
-                .mvId(dto.getMvId())
                 .languageType(dto.getLanguageType())
                 .lyric(dto.getLyric())
                 .link(dto.getLink())
-                .dataId(dto.getDataId())
+                .songData(songData)
                 .build();
         song.setId(dto.getId());
         return song;

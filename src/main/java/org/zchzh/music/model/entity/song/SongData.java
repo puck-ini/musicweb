@@ -3,7 +3,7 @@ package org.zchzh.music.model.entity.song;
 import lombok.*;
 import org.zchzh.music.model.entity.BaseEntity;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 /**
  * @author zengchzh
@@ -18,6 +18,9 @@ import javax.persistence.Entity;
 @Builder
 public class SongData extends BaseEntity {
 
+    @ToString.Exclude
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "songData")
+    private Song song;
     /**
      * 点赞数
      */

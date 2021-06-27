@@ -3,8 +3,12 @@ package org.zchzh.music.model.entity.song;
 import lombok.*;
 import org.zchzh.music.model.entity.BaseEntity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author zengchzh
@@ -16,6 +20,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@ToString(callSuper = true)
 public class Album extends BaseEntity {
 
     /**
@@ -38,4 +43,10 @@ public class Album extends BaseEntity {
      * 播放次数
      */
     private Long playNumber;
+    /**
+     * 专辑中的歌
+     */
+    @ToString.Exclude
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "album", fetch = FetchType.EAGER)
+    private List<Song> songs;
 }
