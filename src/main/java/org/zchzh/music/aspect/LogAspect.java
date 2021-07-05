@@ -79,7 +79,7 @@ public class LogAspect {
                 .userAgent(userAgent)
                 .browser(UserAgentUtil.parse(userAgent).getBrowser().toString())
                 .os(UserAgentUtil.parse(userAgent).getOs().toString()).build();
-        context.publishEvent(new LogEvent(log));
+        context.publishEvent(new LogEvent(this, log));
         return result;
     }
 

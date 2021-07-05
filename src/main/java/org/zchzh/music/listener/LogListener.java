@@ -26,7 +26,7 @@ public class LogListener {
     @Order
     @EventListener(LogEvent.class)
     public void saveDemoLog(LogEvent event) {
-        LogEntity logEntity = (LogEntity) event.getSource();
+        LogEntity logEntity = event.getLogEntity();
         log.info(logEntity.toString());
         repo.save(logEntity);
     }
